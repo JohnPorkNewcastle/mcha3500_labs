@@ -6,6 +6,7 @@
 #include "cmsis_os2.h"
 #include "uart.h"
 #include "pendulum.h"
+#include "motor.h"
 
 static void dummy_task_update(void *arg);
 
@@ -61,8 +62,10 @@ void dummy_task_update(void *arg)
     while(1)
     {
         float v = pendulum_read_voltage();
+        int32_t pos = motor_encoder_getValue();
         // TODO: Add print statements for motor and potentiometer
         printf("Pot voltage = %.3f V\r\n", v);
+        printf("Encoder count = %ld ticks\r\n", pos);
         // Non-blocking delay to wait
         osDelay(1000);
     }

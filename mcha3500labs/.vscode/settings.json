@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "pendulum.h": "c",
+        "motor.h": "c"
+    }
+}

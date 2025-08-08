@@ -8,7 +8,7 @@
 #include "heartbeat_task.h"
 #include "dummy_task.h"
 #include "pendulum.h"
-
+#include "motor.h"
 static void SystemClock_Config(void);
 static void Error_Handler(void);
 
@@ -23,7 +23,9 @@ int main(void)
     // Initialise hardware modules
     uart_init();
     pendulum_init();
-
+    motor_PWM_init();
+    motor_encoder_init();
+   
     // Initialise task modules
     heartbeat_task_init();
     cmd_task_init();
